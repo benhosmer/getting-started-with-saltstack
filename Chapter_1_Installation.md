@@ -14,7 +14,7 @@ SALT also has a fully automated shell-script that makes it even easier to instal
 
 Using wget, you can install SALT with one command: `wget -O - http://bootstrap.saltstack.org | sudo sh`
 
-You can find more information about [SALT Bootstrap] on the project page.
+You can find more information about [SALT Bootstrap](http://docs.saltstack.com/en/latest/topics/tutorials/salt_bootstrap.html) on the project page.
 
 ## Configuration
 
