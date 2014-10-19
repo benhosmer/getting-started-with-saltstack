@@ -1,3 +1,5 @@
+# Credits
+
 I've received some errata submissions, and would like to take the time to 
 recognize those who made the effort to notify me of them.
 

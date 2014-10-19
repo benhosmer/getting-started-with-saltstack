@@ -49,7 +49,7 @@ The equivalent command-line syntax that you would type from your command prompt 
 
 ***Note, this is for RedHat based systems. The Debian equivalent would be:*** 
 
-`# apt-get install httpd`
+`# apt-get install apache2`
 
 This is a short YAML snippet, using SALT specific functions and commands to do the exact same thing:
 
