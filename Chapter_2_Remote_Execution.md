@@ -320,8 +320,6 @@ Suppose you were just notified of a security release for the Apache webserver fr
 
 Using the `-C` flag I've instructed SALT to use compound targeting and by using _grains_ within my target, I targeted those systems that are RedHat based *and* have the _role_ of web server.
 
-If you recall back to the introductory chapter, where I went over some basics of Python, 
-
 Here is a sample return of this command:
 
     httpd:
