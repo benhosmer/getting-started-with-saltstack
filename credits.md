@@ -10,6 +10,5 @@ If we ever meet in person, I would like to thank you and buy you your beverage
 of choice!
 
 Mikey Finn
-"gs3"
 Jon Tegner
 

@@ -341,6 +341,3 @@ I won't cover the use of [Vagrant](http://vagrantup.com) or [SALTY-VAGRANT](http
 
 SALT-CLOUD implements the ability to manage multiple cloud-providers accounts and seamlessly integrate SALT with these providers. The benefit is that you can deploy SALT based servers within multiple providers and use generic state files. For example, using SALT-CLOUD, you can automate the creation and management of separate servers within Amazon Web Services, and Linode at the same time. You can deploy your hadoop cluster on two different providers without needing to have any knowledge of each provider's different APIs.
 
-### SALT-API
-
-Add some nice description here.
