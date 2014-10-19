@@ -62,7 +62,7 @@ Choose one of your machines to act as the master. You can pick either one you wa
 
 should return
 
-`salt-minion (pid  1961) is running…`. 
+`salt-master (pid  1961) is running…`. 
 
 If it isn't, go ahead and start it now with 
 `$ service salt-master start` 
