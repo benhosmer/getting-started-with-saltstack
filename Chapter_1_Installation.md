@@ -48,7 +48,7 @@ Open the `minion` file in your favorite text-editor and locate the line `master:
 
 Since you are using the same machine for both the _minion_ and the _master_, locate the ip address of your machine and add it. Your configuration file should look something like this now:
 
-'' `master: 192.168.1.33`
+`master: 192.168.1.33`
 
 Most likely your ip address will be different.
 
