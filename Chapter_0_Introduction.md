@@ -170,7 +170,7 @@ Thankfully, SALTSTACK has a way to make this much easier and simpler using Jinja
     apache: httpd
     {% endif %}
 
-You tell Jinja to act of a block of text by enclosing it within `{` and `}` symbols. For simple text replacement, you use two `{{` and `}}`.
+You tell Jinja to act on a block of text by enclosing it within `{` and `}` symbols. For simple text replacement, you use two `{{` and `}}`.
 
 The snippet above also contains a bit of logic to help set the name for apache as either httpd or apache2. Don't worry right now about the grains. We'll cover that more in depth in later chapters.
 
