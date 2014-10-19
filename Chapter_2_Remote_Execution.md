@@ -148,7 +148,7 @@ Create a second _minion_ so that you now have three total machines running. This
 
 Let's give this one the id `id: database1.example.com`
 
-Look further down in the _minion_configuration file, and locate near line 51 where you'll see:
+Look further down in the _minion_ configuration file, and locate near line 51 where you'll see:
 
     # grains:
     #   roles:
