@@ -132,7 +132,7 @@ This is an example of very fine-grained targeting. We only targeted one specific
 
 The formula for the `salt` command follows this pattern:
 
-`$ salt` `<target>` `<action`
+`$ salt` `<target>` `<action>`
 
 You can also use [regular expression](http://en.wikipedia.org/regex) matching in your targeting.
 
