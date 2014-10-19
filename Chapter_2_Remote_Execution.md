@@ -188,11 +188,11 @@ Now that we have configured the _grains_ for each of your _minions_ we can targe
 
 In our fictional example, Angie has again arrived for work and wants to check the uptime of all of her webservers. She can now target them by role using the _grains_ system:
 
-`$ salt -G 'role:webserver' cmd.run "uptime"`
+`$ salt -G 'roles:webserver' cmd.run "uptime"`
 
 and the database server:
 
-`$ salt -G 'role:database' cmd.run "uptime"`
+`$ salt -G 'roles:database' cmd.run "uptime"`
 
 The `-G` flag indicates that we want to target a specific grain, in this case `role` followed by the specific role, `database` and `webserver`. We then told each minion to _run the command_ using `cmd.run` followed the command of `"uptime"`.
 
@@ -202,7 +202,7 @@ Again, the syntax follows:
 
 We could issue any available command on each system by modifying the above example:
 
-`$ salt -G 'role:database' cmd.run "reboot"`
+`$ salt -G 'roles:database' cmd.run "reboot"`
 
 You can get a listing of all available _grains_ by using the `grains.ls`:
 
@@ -304,11 +304,11 @@ Let's get some working systems now by installing the Apache Webserver on your we
 
 We'll target them by role, but we could have just as easily targeted them by name as well. Using roles, we gain some abstraction if we were performing this on ten separate machines and save time by only typing one command.
 
-`$ salt -G 'role:webserver' pkg.install "httpd"`
+`$ salt -G 'roles:webserver' pkg.install "httpd"`
 
 and for the database server:
 
-`$ salt -G 'role:database1' pkg.install "mysql"
+`$ salt -G 'roles:database1' pkg.install "mysql"
 
 *Note:* I've used the package name of _httpd_ here, which is what the Apache web server is called in the default package manager for RedHat based systems. You'll need to replace the name of the package with the proper name for your operating system's distribution.
 
@@ -404,7 +404,7 @@ SALT informs you that the file has been copied.
 
 If we had multiple _minions_ that served as database servers, we could have just easily targeted them using the previously mentions _grains_ system like this:
 
-`$ salt -G 'role:database' cp.get_file salt://my.cnf /etc/my.cnf`
+`$ salt -G 'roles:database' cp.get_file salt://my.cnf /etc/my.cnf`
 
 or any other grains available to you.
 
