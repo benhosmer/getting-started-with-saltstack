@@ -20,7 +20,7 @@ For this next section, you may want to start with two fresh minions and configur
 
 ## Installing Packages Using State Files
 
-We'll continue our fictional story of Angie the Systems Administrator, but this time she instructed to set up a new Web and Database Server to host her company's new website.
+We'll continue our fictional story of Angie the Systems Administrator, but this time she was instructed to set up a new Web and Database Server to host her company's new website.
 
 She's done this before, and has gone through the tedium of installing Apache, MySQL, PHP and the other PHP extensions needed for their content management system. She has a working web server to use as a guide and with some configuration files for each.
 
