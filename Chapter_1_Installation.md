@@ -15,7 +15,7 @@ SALT also has a fully automated shell-script that makes it even easier to instal
 Using wget, you can install SALT with one command: 
 
 ```
-wget -O - http://bootstrap.saltstack.org | sudo sh
+# wget -O - http://bootstrap.saltstack.org | sudo sh
 ```
 
 You can find more information about [SALT Bootstrap](http://docs.saltstack.com/en/latest/topics/tutorials/salt_bootstrap.html) on the project page.
@@ -74,7 +74,9 @@ Again, for this section your _minion_ and _master_ are the same machine, but lat
 
 Log in to your master if you aren't already, and type the following:
 
-`salt-key -L`
+```
+# salt-key -L
+```
 
 This command will list all of the accepted, rejected, and pending keys within your _master_.
 
@@ -86,7 +88,9 @@ You've now completed the installation of SALT and configured your systems to com
 
 You can test the connection now with the `test.ping` command like this:
 
-`# salt '*' test.ping`
+```
+# salt '*' test.ping
+```
 
 Which should return:
 
