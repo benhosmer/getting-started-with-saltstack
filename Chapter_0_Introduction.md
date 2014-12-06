@@ -230,7 +230,7 @@ Earlier I told you that you don't have to have any knowledge of Python, or any o
 
 I do want to give a very brief overview of some common Python data structures that will help you in writing and understanding your states, and troubleshooting when they don't quite work as you expected. If you've used other scripting languages like Ruby, you can probably safely skip this section on Python. I am only introducing these here because SALT is very Pythonic in its syntax and operations. 
 
-Bare with me, this isn't a book about Python and this will be very brief, but it is important to understand how SALT interprets and collects, stores, and interprets information from your state files and commands. 
+Bear with me, this isn't a book about Python and this will be very brief, but it is important to understand how SALT collects, stores, and interprets information from your state files and commands. 
 
 Because SALT is written in Python, many errors that get returned to you are returned by Python itself. Having some cursory knowledge of the way Python references data, can help you interpret what might be wrong with your syntax.
 
