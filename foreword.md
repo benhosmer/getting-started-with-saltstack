@@ -1,4 +1,4 @@
-# Foreward
+# Foreword
 
 This book began as a paid contract for a publishing company. I was writing it in my sparetime, but the publisher and I had different opinions about where the book was going.
 

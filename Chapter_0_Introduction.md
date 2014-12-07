@@ -230,7 +230,7 @@ Earlier I told you that you don't have to have any knowledge of Python, or any o
 
 I do want to give a very brief overview of some common Python data structures that will help you in writing and understanding your states, and troubleshooting when they don't quite work as you expected. If you've used other scripting languages like Ruby, you can probably safely skip this section on Python. I am only introducing these here because SALT is very Pythonic in its syntax and operations. 
 
-Bare with me, this isn't a book about Python and this will be very brief, but it is important to understand how SALT interprets and collects, stores, and interprets information from your state files and commands. 
+Bear with me, this isn't a book about Python and this will be very brief, but it is important to understand how SALT collects, stores, and interprets information from your state files and commands. 
 
 Because SALT is written in Python, many errors that get returned to you are returned by Python itself. Having some cursory knowledge of the way Python references data, can help you interpret what might be wrong with your syntax.
 
@@ -365,7 +365,12 @@ There are other SALTSTACK tools that I won't cover in this book, but I would lik
 ### SALTY-VAGRANT
 I won't cover the use of [Vagrant](http://vagrantup.com) or [SALTY-VAGRANT](http://github.com/saltstack/salty-vagrant) here, but this is an excellent tool to check out and one you will find very convenient for testing new states prior to deploying them to production. Vagrant allows you to manage very small virtual-machines and instantly reset them whenever you want. SALTY-VAGRANT is a Vagrant plugin that allows you to automatically install SALT and deploy your state files within a Vagrant virtual-machine. This can save hours of troubleshooting since you start with a fresh base every time you use it.
 
+**NOTE : DEPRECATED: Vagrant includes a salt provisioner for versions 1.3.0 and above**
+
+
 ### SALT-CLOUD
 
 SALT-CLOUD implements the ability to manage multiple cloud-providers accounts and seamlessly integrate SALT with these providers. The benefit is that you can deploy SALT based servers within multiple providers and use generic state files. For example, using SALT-CLOUD, you can automate the creation and management of separate servers within Amazon Web Services, and Linode at the same time. You can deploy your hadoop cluster on two different providers without needing to have any knowledge of each provider's different APIs.
+
+**NOTE: salt-cloud is Now Part of Salt!**
 
