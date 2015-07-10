@@ -14,5 +14,6 @@ of choice!
 
 * Mikey Finn
 * Jon Tegner
+* Tom Heinisch
 
 Thank you!
