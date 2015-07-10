@@ -53,7 +53,7 @@ Feel free to choose whatever distribution you would like, but you'll find instal
 
 However you created these two machines, at this point you should have two separate systems, each up and running.
 
-Again, we will use a fairly simple website hosting architecture with on minion acting as the webserver, and one acting as the master. Later, when we move to writing and testing our _State Files_ in Chapter 3, we'll use the `salt-call` command, but for this initial exercise I'd like to use two different machines.
+Again, we will use a fairly simple website hosting architecture with one minion acting as the webserver, and one acting as the master. Later, when we move to writing and testing our _State Files_ in Chapter 3, we'll use the `salt-call` command, but for this initial exercise I'd like to use two different machines.
 
 ## Set up Your Master
 Choose one of your machines to act as the master. You can pick either one you want and install the `salt-master` package on this one. The master will require very little configuration at this point, especially for the remote execution tutorials. All you really need to do is simply note the ip address of this machine. Ensure that master is running. On CentOS and Ubuntu systems the `salt-master command`:
