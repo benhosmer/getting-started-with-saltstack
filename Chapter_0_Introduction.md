@@ -6,7 +6,7 @@ Now we often see businesses that own fifty or more servers. With virtual-machine
 
 If you can imagine the amount of administrative overhead required just to maintain security updates alone on one-thousand servers, you might also start to wonder if there is a solution that exists for this very thing. Even the mundane task of setting up _another_ web server can be automated by the very tool named in the title of this book: SALTSTACK.
 
-SALTSTACK is an open source software project licensed under the Apache license. The code is available from [github.com/salstack/salt](http://github.com/salstack/salt). SALSTACK Inc. is the company behind SALTSTACK and it was founded by Thomas Hatch, the original creator of SALTSTACK.
+SALTSTACK is an open source software project licensed under the Apache license. The code is available from [github.com/saltstack/salt](http://github.com/saltstack/salt). SALTSTACK Inc. is the company behind SALTSTACK and it was founded by Thomas Hatch, the original creator of SALTSTACK.
 
 This book is for the new or seasoned System Administrator looking to manage and configure multiple servers more easily. These can be virtual-machines such as an Amazon EC2 instances, Rackspace Virtual-Machines, or bare-metal physical machines. As long as you have root access, you can probably use SALT with your provider.
 
