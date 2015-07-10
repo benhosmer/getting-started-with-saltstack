@@ -34,7 +34,7 @@ In a typical linux-based SALTSTACK installation, you'll find the configuration f
 
 The default configuration file is well-documented and you can probably leave it as it is. You may want to read through it though just to familiarize yourself with the various options available.
 
-Now that the _salt-master_ has been installed, you may need to start it. Depending on your operating system, you may need to use `systemctl salt-master start` or `service salt-master start`.
+Now that the _salt-master_ has been installed, you may need to start it. Depending on your operating system, you may need to use `systemctl start salt-master` or `service salt-master start`.
 
 ## Minion Configuration
 
