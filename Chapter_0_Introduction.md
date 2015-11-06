@@ -166,7 +166,7 @@ Thankfully, SALTSTACK has a way to make this much easier and simpler using Jinja
 
     {% if grains['os'] == 'Ubuntu' %}
     apache: apache2
-    {% elif grains['os'] == 'RedHat %}
+    {% elif grains['os'] == 'RedHat' %}
     apache: httpd
     {% endif %}
 
