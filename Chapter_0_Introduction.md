@@ -213,7 +213,7 @@ This is a sample tree of SALT's directory structure:
 
 Notice that the `top.sls` is located within the base of the `/srv/salt` directory. This is important and we'll get in to this file later. I've chosen to create directories for each _state file_ with their name for easier recognition. You don't _have_ to do this.
 
-SALT is quite flexibile and doesn't enforce very many naming conventions. I happen to find it much simpler to have my _state files_ organized with directory names. You could have an `apache.sls` file instead and omit the directory if you chose to do so, but as you can see for example in the `apache` directory, there is  an `httpd.conf` file. The `/srv/salt` directory could quickly get littered with mulitple files that don't relate to each other.
+SALT is quite flexibile and doesn't enforce very many naming conventions. I happen to find it much simpler to have my _state files_ organized with directory names. You could have an `apache.sls` file instead and omit the directory if you chose to do so, but as you can see for example in the `apache` directory, there is  an `httpd.conf` file. The `/srv/salt` directory could quickly get littered with multiple files that don't relate to each other.
 
 I haven't explained the _pillar_ yet, but I do want to point out that the structure is quite similar to the _state file_ layout:   
  
