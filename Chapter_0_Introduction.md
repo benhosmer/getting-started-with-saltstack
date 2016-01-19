@@ -26,7 +26,7 @@ SALTSTACK can be considered to be two tools in one: Remote execution, and Config
 
 I'll start by quickly explaining how you can install SALTSTACK for your particular operating system. Whenever possible, I'll refer to the official documentation available from the project for the sake of brevity. You should refer to the documentation as well, since the project has bug fixes and contributions on a daily basis.
 
-One of the most important aspects of making an open source software project successful is the community around this project. SALTSTACK is no exception and has an excellent community built around it. The official SALTSTACK site, [salstack.org](http://salstack.org), hosts the documentation for the project that includes many examples.
+One of the most important aspects of making an open source software project successful is the community around this project. SALTSTACK is no exception and has an excellent community built around it. The official SALTSTACK site, [salstack.org](http://saltstack.com/), hosts the documentation for the project that includes many examples.
 
 You can also communicate with the SALTSTACK community in the #salt channel from freenode. If that last sentence makes no sense, a simple search for `irc - internet relay chat` should get you going with an irc client so that you can exchange real-time messages with others.
 
