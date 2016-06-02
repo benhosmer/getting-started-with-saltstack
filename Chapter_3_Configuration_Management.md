@@ -71,7 +71,7 @@ As your systems become more complex, you'll find it easier to refer to your stat
 
        apache:
           pkg:
-            - name: http
+            - name: httpd
             - installed
 
 You can name each directive something that makes sense to you, and then use `name` to refer to the specific item. In this example, I've changed the name of the directive simply to _apache_, after the web server software that it installs.
