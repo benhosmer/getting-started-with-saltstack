@@ -12,7 +12,7 @@ Being open source means that you can inspect the source code, improve it, and yo
 
 Often these changes will be merged back into the project within minutes or hours.
 
-There is a a company behind SALT, SALSTACK Inc., but there are no intentions to make the project closed-source or to offer a crippled community edition, and an expensive more feature-rich paid version.
+There is a a company behind SALT, SALTSTACK Inc., but there are no intentions to make the project closed-source or to offer a crippled community edition, and an expensive more feature-rich paid version.
 
 I've had a few discussions with Thomas Hatch, the original author and copyright holder of SALTSTACK about this. He informed me that the enterprise editions will include support as well as much more rigorously tested code. It might also be a few months behind the open source version. This appeals to enterprise customers, but he has made it clear that he does not intend to wall SALT off so to speak from the community version.
 
@@ -26,7 +26,7 @@ Being open source also means that there are many contributors evaluating and usi
 
 I urge you to find a way to contribute back to the project.
 
-If you're a developer with a fairly basic understanding of Python, the entire [SALSTACK](http://github.com/salstack/salt) project is hosted publicly on [github](http://github.com). Pull requests are always welcome and you'll find many developers, employees of SALSTACK Inc., or just users, ready to help you.
+If you're a developer with a fairly basic understanding of Python, the entire [SALTSTACK](http://github.com/saltstack/salt) project is hosted publicly on [github](http://github.com). Pull requests are always welcome and you'll find many developers, employees of SALTSTACK Inc., or just users, ready to help you.
 
 If you aren't a coder, you can still contribute back to the project.
 
@@ -39,7 +39,7 @@ You'll probably come up with even more ways than those if you've been involved w
 
 As much as I've tried to make this text clear and understandable, inevitably you will find something confusing.
 
-You'll find the power of the SALSTACK community within your reach when this does happen. Often, you'll find your question answered within minutes. Bug fixes will be incorporated within hours sometimes.
+You'll find the power of the SALTSTACK community within your reach when this does happen. Often, you'll find your question answered within minutes. Bug fixes will be incorporated within hours sometimes.
 
 ### The Mailing List
 
@@ -59,7 +59,7 @@ Don't be shy, just jump in!
 
 ### Training
 
-SALSTACK Inc. offers [paid training](http://saltstack.com/services) as well. This is a great way to learn SALT in-depth from the creators. 
+SALTSTACK Inc. offers [paid training](http://saltstack.com/services) as well. This is a great way to learn SALT in-depth from the creators. 
 
 Often you'll find two or three hour courses offered for free at many open source conferences though.
 
