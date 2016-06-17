@@ -10,13 +10,13 @@ SALTSTACK is an open source software project licensed under the Apache license. 
 
 This book is for the new or seasoned System Administrator looking to manage and configure multiple servers more easily. These can be virtual-machines such as an Amazon EC2 instances, Rackspace Virtual-Machines, or bare-metal physical machines. As long as you have root access, you can probably use SALT with your provider.
 
-You will need some basic knowledge of your own filesystem, the packaging system in use with your organization, and some simple command-line commands. If you've programmed before, you'll benefit as well and you might have an easier time understanding some of the syntax, but prior programming knowledge if definitely not a requirement to use SALSTACK.
+You will need some basic knowledge of your own filesystem, the packaging system in use with your organization, and some simple command-line commands. If you've programmed before, you'll benefit as well and you might have an easier time understanding some of the syntax, but prior programming knowledge if definitely not a requirement to use SALTSTACK.
 
 This book will cover the installation and use of SALTSTACK to manage linux servers.
 
 SALT does however support installation and management on almost any system imaginable though. This includes Windows, FreeBSD, Solaris and many others. Be sure to check the specific documentation from [docs.saltstack.com](http://docs.saltstack.com) for specific installation and use with your particular operating system. You can even use SALT installed on one type of operating system to manage systems with different operating systems installed. Do note however, that the commands must be available for the particular system you are initiating them on. A Linux specific command even though you are using SALT on a linux machine, won't be available, for example on a Windows based system.
 
-I won't cover those systems here, since SALT works generically regardless of what system you have it installed on. This is one of the beauties of SALSTACK. Regardless of what type of system or systems you plan on managing, the syntax and commands are the same. There are a few operating system specific functions, but those are well-documented in the official [SALSTACK Documentation](http://docs.saltstack.com). These are an excellent resource that are updated as new features are added.
+I won't cover those systems here, since SALT works generically regardless of what system you have it installed on. This is one of the beauties of SALTSTACK. Regardless of what type of system or systems you plan on managing, the syntax and commands are the same. There are a few operating system specific functions, but those are well-documented in the official [SALTSTACK Documentation](http://docs.saltstack.com). These are an excellent resource that are updated as new features are added.
 
 I am purposely keeping most of the examples in the following pages quite simple and concise. This book isn't meant to cover everything you would ever need to know about SALTSTACK, but more to ease you in to using it and get you running in as little as a few evenings or even a day.
 
@@ -26,7 +26,7 @@ SALTSTACK can be considered to be two tools in one: Remote execution, and Config
 
 I'll start by quickly explaining how you can install SALTSTACK for your particular operating system. Whenever possible, I'll refer to the official documentation available from the project for the sake of brevity. You should refer to the documentation as well, since the project has bug fixes and contributions on a daily basis.
 
-One of the most important aspects of making an open source software project successful is the community around this project. SALTSTACK is no exception and has an excellent community built around it. The official SALTSTACK site, [salstack.org](http://saltstack.com/), hosts the documentation for the project that includes many examples.
+One of the most important aspects of making an open source software project successful is the community around this project. SALTSTACK is no exception and has an excellent community built around it. The official SALTSTACK site, [saltstack.org](http://saltstack.com/), hosts the documentation for the project that includes many examples.
 
 You can also communicate with the SALTSTACK community in the #salt channel from freenode. If that last sentence makes no sense, a simple search for `irc - internet relay chat` should get you going with an irc client so that you can exchange real-time messages with others.
 
