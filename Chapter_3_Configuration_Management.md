@@ -226,8 +226,14 @@ Next, the `'webserver.dev'` minion gets the `nginx` state applied to it. This ta
 - Explain using `highstate` now that we have a top file
 - Explain using `test=True` to ensure everything works as expected
 
+## Requisites in State Files
+*Placeholder for Requisites*
+- A state the depends on another state before it can be applied
+
 ## Pillars
 *Placeholder for Pillar Section*
+- Pillars are like variables
+- Can be applied to minions similar to how the top 
 
 ## Troubleshooting
 *Placeholder for tips for troubleshooting*
