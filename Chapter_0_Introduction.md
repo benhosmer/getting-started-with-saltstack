@@ -344,7 +344,7 @@ Our simple python demonstration might look like this (you can try this yourself 
     >>> total_fruit
     >>> 30
     >>> apples and bananas
-    >>> 15
+    >>> 25
     >>> if apples == 10 and oranges == 5:
     ...     print "True."
     >>> True.
