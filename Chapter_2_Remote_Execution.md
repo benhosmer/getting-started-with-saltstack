@@ -308,7 +308,7 @@ We'll target them by role, but we could have just as easily targeted them by nam
 
 and for the database server:
 
-`$ salt -G 'roles:database1' pkg.install "mysql"
+`$ salt -G 'roles:database1' pkg.install "mysql"`
 
 *Note:* I've used the package name of _httpd_ here, which is what the Apache web server is called in the default package manager for RedHat based systems. You'll need to replace the name of the package with the proper name for your operating system's distribution.
 
