@@ -361,8 +361,8 @@ We'll touch on boolean operations in SALT when we examine the _grains_ system an
 
 There are other SALTSTACK tools that I won't cover in this book, but I would like to mention them here simply to give you an idea of the other tools available.
 
-### SALTY-VAGRANT
-I won't cover the use of [Vagrant](http://vagrantup.com) or [SALTY-VAGRANT](http://github.com/saltstack/salty-vagrant) here, but this is an excellent tool to check out and one you will find very convenient for testing new states prior to deploying them to production. Vagrant allows you to manage very small virtual-machines and instantly reset them whenever you want. SALTY-VAGRANT is a Vagrant plugin that allows you to automatically install SALT and deploy your state files within a Vagrant virtual-machine. This can save hours of troubleshooting since you start with a fresh base every time you use it.
+### Vagrant
+I won't cover the use of [Vagrant](http://vagrantup.com) here, but this is an excellent tool to check out and one you will find very convenient for testing new states prior to deploying them to production. Vagrant allows you to manage very small virtual-machines and instantly reset them whenever you want. Vagrant includes a SALT provisioner that allows you to automatically install SALT and deploy your state files within a Vagrant virtual-machine. This can save hours of troubleshooting since you start with a fresh base every time you use it.
 
 ### SALT-CLOUD
 
