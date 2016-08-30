@@ -177,10 +177,11 @@ If you're using a Debian based system, the `apache2` package should have been in
 
 ## The top files
 
-Up to this point, we've applied our states manually using the `state.sls` function. As you can imagine though, this could become tedious
-if you wanted to create several identical webservers on different machines, or have multiple states applied to one machine.
+Up to this point, we've applied our states manually using the `state.sls` function. As you can imagine though, this could become tedious if you wanted to create several identical webservers on different machines, or have multiple states applied to one machine.
 
 In the context of SALT's state system, the `top.sls` file maps states to minions. It is located in the `/srv/salt` directory. In the next section, I'll talk about `pillar`, but for now, it also works in a similar fashion as the state system's top file, but maps pillar values to minions.
+
+The `top.sls` should exist on the _master_, or the _minion_ if you're using SALT in a _masterless_ configuration. Either way, the machine you are initiating the `salt` or `salt-call` on should have the `top.sls` and _state files_ present.
 
 Our previous example installed the webserver, php and packages on one machine. This likely isn't ideal for performance or fail-over, and we still
 need a database as well.
@@ -213,15 +214,23 @@ Let's look at the `top.sls` file we'll need to accomplish this:
 
 With the
 
-  base:
-    '*':
-      - users
+    base:
+      '*':
+        - users
 
-we've ensured _every_ machine has the `users` state applied to it. This let's us create and maintain one `users` state and apply it to multiple
-machines without changing it.
+we've ensured _every_ machine has the `users` state applied to it. This let's us create and maintain one `users` state and apply it to multiple machines without any additional changes.
 
-Next, the `'webserver.dev'` minion gets the `nginx` state applied to it. This targets the _minion_ by its id, `webserver.dev`. Finally, we can apply
-the `mysql` state to the `db.dev` minion.
+Next, the `'webserver.dev'` minion gets the `nginx` state applied to it. This targets the _minion_ by its id, `webserver.dev`. Finally, we can apply the `mysql` state to the `db.dev` minion.
 
+*@TODO*
+- Explain using `highstate` now that we have a top file
+- Explain using `test=True` to ensure everything works as expected
 
+## Pillars
+*Placeholder for Pillar Section*
 
+## Troubleshooting
+*Placeholder for tips for troubleshooting*
+- `salt-call state.show_sls mystate`
+- `salt-call state.show_highstate`
+- Explain using `--log-level debug`
