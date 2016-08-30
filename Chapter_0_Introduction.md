@@ -56,16 +56,15 @@ This is a short YAML snippet, using SALT specific functions and commands to do t
 Using the YUM specific name of `httpd` for the package to install:
 
     apache:
-      pkg:
+      pkg.installed:
         - name: httpd
-        - installed
 
 And for Debian-based systems since the package is called `apache2`:
 
     apache:
-      pkg:
+      pkg.installed:
         - name: apache2
-        - installed
+
 
 Without even being familiar with YAML, you can probably figure out just from reading it what will happen.
 
@@ -195,18 +194,18 @@ This is a sample tree of SALT's directory structure:
 
     /srv/salt/
     ├── apache
-    │   ├── httpd.conf
-    │   └── init.sls
+    │   ├── httpd.conf
+    │   └── init.sls
     ├── groupmaker
-    │   └── init.sls
+    │   └── init.sls
     ├── hostnames
-    │   ├── init.sls
-    │   └── mage.conf
+    │   ├── init.sls
+    │   └── mage.conf
     ├── stagerpm
-    │   ├── init.sls
-    │   └── stage-1.0.0-dev.x86_64.rpm
+    │   ├── init.sls
+    │   └── stage-1.0.0-dev.x86_64.rpm
     ├── npm
-    │   └── init.sls
+    │   └── init.sls
     ├── top.sls
     └── vim
         └── init.sls
