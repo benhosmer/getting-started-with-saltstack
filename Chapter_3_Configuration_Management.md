@@ -196,3 +196,20 @@ We'll set our directory up like this:
     ├── users/
     │   └── init.sls
     ├── top.sls
+
+To better emulate production, our system will have two servers. One will be the webserver with NGINX and PHP installed. The other will be our Database server with MariaDB installed. This is in the _dev_ environment, so we'll also let other developers login to troubleshoot bugs. We'll manage them through a `users` state.
+
+Let's look at the `top.sls` file we'll need to accomplish this:
+
+    base:
+      '*':
+        - users
+      'webserver.dev':
+        - nginx
+      'db.dev':
+        - mysql
+
+
+
+
+
