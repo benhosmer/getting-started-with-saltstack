@@ -50,9 +50,18 @@ Since you are using the same machine for both the _minion_ and the _master_, loc
 
 `master: 192.168.1.33`
 
+Also, add an `id` for easier reference:
+
+`id: myminion`
+
+Your _minion_ file should now look something like this:
+
+`master: 192.168.1.33`
+`id: myminion`
+
 Most likely your ip address will be different.
 
-Now start the `salt-minion` using whatever method your system supports. I'll use `service salt-minion start` for this example.
+Now start the `salt-minion` using whatever method your system supports. I'll use `$ service salt-minion start` for this example.
 
 Now with both the minion and master started and running you have successfully installed SALTSTACK! You are now ready to take control of your infrastructure with a powerful and fast remote execution and configuration management system. 
 
@@ -68,11 +77,40 @@ Again, for this section your _minion_ and _master_ are the same machine, but lat
 
 Log in to your master if you aren't already, and type the following:
 
-`salt-key -L`
+`# salt-key -L`
 
 This command will list all of the accepted, rejected, and pending keys within your _master_.
 
 Hopefully you see a pending key for your newly installed _minion_.
+
+    Accepted Keys:
+    Denied Keys:
+    Unaccepted Keys:
+    myminion
+    Rejected Keys:
+
+You now need to accept the key in order for the master to recognize the minion as authorized to communicated with it. You do this with the 
+
+`# salt-key -a myminion`
+
+    The following keys are going to be accepted:
+    Unaccepted Keys:
+    myminion
+    Proceed? [n/Y]
+
+Press the `Y` key to accept the _minion's_ key.
+
+    Key for minion myminion accepted.
+
+## Masterless Salt Minion
+
+It's possible to utilize a SALT _minion_ without connecting it to a master. This is what is referred to as a _masterless_ configuration.
+All you'll need for this is the `salt-minion` installation. You'll need to edit the _minion_ configuration and set the `file_client:` to `local`.
+
+This is all you need for a _masterless_ minion configuration:
+
+    file_client: local
+    id: myminion
 
 ## Conclusion
 
