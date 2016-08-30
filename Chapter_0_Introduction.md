@@ -364,6 +364,19 @@ There are other SALTSTACK tools that I won't cover in this book, but I would lik
 ### Vagrant
 I won't cover the use of [Vagrant](http://vagrantup.com) here, but this is an excellent tool to check out and one you will find very convenient for testing new states prior to deploying them to production. Vagrant allows you to manage very small virtual-machines and instantly reset them whenever you want. Vagrant includes a SALT provisioner that allows you to automatically install SALT and deploy your state files within a Vagrant virtual-machine. This can save hours of troubleshooting since you start with a fresh base every time you use it.
 
+Once you've got Vagrant installed, using the SALT provisioner is as simple as adding something like this to your _Vagrantfile_:
+
+config.vm.define "saltbox", autostart: false do |base7|
+  base7.vm.box = "yourbox"
+  base7.vm.hostname = "myminion.dev"
+  base7.vm.network "private_network", ip: "192.168.33.68"
+  base7.vm.provision :salt do |salt|
+    salt.minion_config = "saltminmas.minion"
+    salt.run_highstate = false
+    salt.log_level = "all"
+  end
+end
+
 ### SALT-CLOUD
 
 SALT-CLOUD implements the ability to manage multiple cloud-providers accounts and seamlessly integrate SALT with these providers. The benefit is that you can deploy SALT based servers within multiple providers and use generic state files. For example, using SALT-CLOUD, you can automate the creation and management of separate servers within Amazon Web Services, and Linode at the same time. You can deploy your hadoop cluster on two different providers without needing to have any knowledge of each provider's different APIs.
