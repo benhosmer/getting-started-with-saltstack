@@ -150,7 +150,7 @@ Use jinja syntax to add grains to your state file like this:
 
     apache:
       pkg:
-      {% if grains['os'] == 'Ubuntu %}
+      {% if grains['os'] == 'Ubuntu' %}
         - name: apache2
       {% elif grains['os_family'] == 'Redhat' %}
         - name: httpd
