@@ -151,7 +151,7 @@ Save your `init.sls` file now and execute your state:
         Function:  installed
             Result:    True
             Comment:   Package httpd is already installed
-            Changes:   
+            Changes:
 
 ### Using the grains System within State Files
 Building upon this, we can use the _grains_ system in our state files to target multiple operating systems.
@@ -175,3 +175,24 @@ Save this file now, and let's test it again:
 
 If you're using a Debian based system, the `apache2` package should have been installed, or for RedHat, the `httpd` package.
 
+### The top files
+
+Up to this point, we've applied our states manually using the `state.sls` function. As you can imagine though, this could become tedious
+if you wanted to create several identical webservers on different machines, or have multiple states applied to one machine.
+
+In the context of SALT's state system, the `top.sls` file maps states to minions. It is located in the `/srv/salt` directory. In the next section, I'll talk about `pillar`, but for now, it also works in a similar fashion as the state system's top file, but maps pillar values to minions.
+
+Our previous example installed the webserver, php and packages on one machine. This likely isn't ideal for performance or fail-over, and we still
+need a database as well.
+
+We'll set our directory up like this:
+
+    /srv/salt/
+    ├── nginx
+    │   ├── nginx.conf
+    │   └── init.sls
+    ├── mysql/
+    │   └── init.sls
+    ├── users/
+    │   └── init.sls
+    ├── top.sls
