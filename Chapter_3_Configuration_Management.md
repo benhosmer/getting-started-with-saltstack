@@ -112,7 +112,7 @@ You can install multiple packages at once with the `pkgs` list like this:
           - tomcat
 
 
-#### Managing Files with State Files
+## Managing Files with State Files
 
 The second part of our web server setup involves copying the system specific configuration files for the Apache web server to the minion.
 
@@ -153,7 +153,7 @@ Save your `init.sls` file now and execute your state:
             Comment:   Package httpd is already installed
             Changes:
 
-### Using the grains System within State Files
+## Using the grains System within State Files
 Building upon this, we can use the _grains_ system in our state files to target multiple operating systems.
 
 Use jinja syntax to add grains to your state file like this:
@@ -175,7 +175,7 @@ Save this file now, and let's test it again:
 
 If you're using a Debian based system, the `apache2` package should have been installed, or for RedHat, the `httpd` package.
 
-### The top files
+## The top files
 
 Up to this point, we've applied our states manually using the `state.sls` function. As you can imagine though, this could become tedious
 if you wanted to create several identical webservers on different machines, or have multiple states applied to one machine.
