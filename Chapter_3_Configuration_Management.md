@@ -197,7 +197,9 @@ We'll set our directory up like this:
     │   └── init.sls
     ├── top.sls
 
-To better emulate production, our system will have two servers. One will be the webserver with NGINX and PHP installed. The other will be our Database server with MariaDB installed. This is in the _dev_ environment, so we'll also let other developers login to troubleshoot bugs. We'll manage them through a `users` state.
+To better emulate production, our system will have two servers. One will be the webserver with NGINX and PHP installed. The other will be our Database server with MariaDB installed. This is in the _dev_ environment, so we'll also let other developers login to troubleshoot bugs. We'll manage them through a `users` state. This also allows us to create reusable states that can be applied across environments.
+
+To complete this exercise, you'll need two separate minions. One with the id of `webserver.dev` and one with an id of `db.dev`.
 
 Let's look at the `top.sls` file we'll need to accomplish this:
 
@@ -209,7 +211,17 @@ Let's look at the `top.sls` file we'll need to accomplish this:
       'db.dev':
         - mysql
 
+With the
 
+  base:
+    '*':
+      - users
+
+we've ensured _every_ machine has the `users` state applied to it. This let's us create and maintain one `users` state and apply it to multiple
+machines without changing it.
+
+Next, the `'webserver.dev'` minion gets the `nginx` state applied to it. This targets the _minion_ by its id, `webserver.dev`. Finally, we can apply
+the `mysql` state to the `db.dev` minion.
 
 
 
