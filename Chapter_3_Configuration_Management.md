@@ -61,7 +61,7 @@ Add the following to this new file:
 In the example above, I've added a `[2]` to denote spaces before the `pkg. installed` directives for clarity. The actual entry won't contain this and will look like this:
 
     httpd:
-      pkg.installed 
+      pkg.installed
 
 This is _YAML_ syntax, which is sensitive to the spacing in front of each directive. Just remember to always include two spaces before your directives.
 
@@ -101,6 +101,16 @@ Executing this now should result in the following:
 
 Your versions might differ, since they have probably been updated since the writing of this book.
 
+**Note**
+You can install multiple packages at once with the `pkgs` list like this:
+
+    java-packages:
+      pkg.installed
+        - pkgs:
+          - java-1.7.0-openjdk
+          - haveged
+          - tomcat
+
 
 #### Managing Files with State Files
 
@@ -124,7 +134,7 @@ After the apache entry in your `init.sls` file, add the following:
 
 Save your `init.sls` file now and execute your state:
 
-`$ salt 'webserver1.example.com` state.sls apache`
+`# salt 'webserver1.example.com' state.sls apache`
 
     webserver1.example.com:
     ----------
@@ -159,4 +169,9 @@ Use jinja syntax to add grains to your state file like this:
 
 This gives us a much more generic and reusable state file, that can be used for Debian and RedHat based systems.
 
-Save this file now, and let's test it.
+Save this file now, and let's test it again:
+
+`# salt 'webserver1.example.com' state.sls apache`
+
+If you're using a Debian based system, the `apache2` package should have been installed, or for RedHat, the `httpd` package.
+
