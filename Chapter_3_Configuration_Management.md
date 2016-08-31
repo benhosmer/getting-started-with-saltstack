@@ -78,7 +78,7 @@ You can name each directive something that makes sense to you, and then use `nam
 
 Save this file and test it now with
 
-`$ salt 'webserver1.example.com` state.sls apache`
+`$ salt 'webserver1.example.com' state.sls apache`
 
 The syntax should start becoming more familiar, and I won't go over the command or targeting this time.
 
