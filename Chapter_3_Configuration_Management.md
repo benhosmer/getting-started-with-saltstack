@@ -12,7 +12,7 @@ If you can imagine, your commands will become quite lengthy and hard to recall o
 
 This is where configuration management steps in and extends SALT even further.
 
-Configurations are stored in simple text-files called _state files_. These files are written using the _YAML_ syntax, making them easy for humans to understand. 
+Configurations are stored in simple text-files called _state files_. These files are written using the _YAML_ syntax, making them easy for humans to understand.
 
 This allows you to script the provisioning and installation of your particular systems. You can start from a bare-bones operating system, and have a complete web server up and running completely automatically.
 
@@ -179,7 +179,7 @@ If you're using a Debian based system, the `apache2` package should have been in
 
 Up to this point, we've applied our states manually using the `state.sls` function. As you can imagine though, this could become tedious if you wanted to create several identical webservers on different machines, or have multiple states applied to one machine.
 
-In the context of SALT's state system, the `top.sls` file maps states to minions. It is located in the `/srv/salt` directory. In the next section, I'll talk about `pillar`, but for now, it also works in a similar fashion as the state system's top file, but maps pillar values to minions.
+In the context of SALT's state system, the `top.sls` file maps states to minions. It is located in the `/srv/salt` directory. In the next section, I'll talk about `pillar` in an upcoming section. For now though, just know that it also works in a similar fashion as the state system's top file, but maps pillar values to minions.
 
 The `top.sls` should exist on the _master_, or the _minion_ if you're using SALT in a _masterless_ configuration. Either way, the machine you are initiating the `salt` or `salt-call` on should have the `top.sls` and _state files_ present.
 
@@ -209,6 +209,7 @@ Let's look at the `top.sls` file we'll need to accomplish this:
         - users
       'webserver.dev':
         - nginx
+        - php
       'db.dev':
         - mysql
 
@@ -220,20 +221,110 @@ With the
 
 we've ensured _every_ machine has the `users` state applied to it. This let's us create and maintain one `users` state and apply it to multiple machines without any additional changes.
 
-Next, the `'webserver.dev'` minion gets the `nginx` state applied to it. This targets the _minion_ by its id, `webserver.dev`. Finally, we can apply the `mysql` state to the `db.dev` minion.
+Next, the `'webserver.dev'` minion gets the `nginx` and `php` state applied to it. This targets the _minion_ by its id, `webserver.dev`. Finally, we can apply the `mysql` state to the `db.dev` minion.
 
-*@TODO*
-- Explain using `highstate` now that we have a top file
-- Explain using `test=True` to ensure everything works as expected
+We'll again use the `pkg.installed` function to install our database, (MariaDB), and our webserver (NGINX), and the PHP modules we'll need as well.
+We'll also create a `users` state to add each of our developers as users. This is where you'll learn about using `pillar`. On the way we'll use some state requisites to ensure things happen in the order we want them to. Finally we'll round everything out and learn how to automate all of this using `highstate`.
+
+Let's start with our `nginx` state. We'll need to do the following:
+
+1. Install the NGINX package
+2. Add our site's configuration file for NGINX
+
+Here's the contents of our NGINX State:
+
+    nginx:
+      pkg.installed:
+        - name: nginx
+      file.managed:
+        - name: /etc/nginx/conf.d/default.conf
+        - source: salt://nginx/default.conf
+
+As I've mentioned before, a great way to test your states as you create them is with the `salt-call` command.
+
+`# salt-call state.sls nginx test=True`
+
+Which should show you that the NGINX package will be installed, and your configuration file added.
+
 
 ## Requisites in State Files
-*Placeholder for Requisites*
-- A state the depends on another state before it can be applied
+
+The official SALT [requisite documentation](https://docs.saltstack.com/en/latest/ref/states/requisites.html)
+contains more detailed information on requisites available than I'll describe here.
+
+Up until this point we've explored some simple states that were self-contained and did some fairly simple things.
+The order in which they did things didn't really matter. However, our next step is to install PHP, 
+some libraries, and the `spawn-fcgi` package. _State Requisites_ are used to control the order in which your states
+are applied. Here's what we need to do for the next step:
+
+1. Install the PHP package and some libraries
+2. Install the `spawn-fcgi` package
+3. Add a `spawn-fcgi` configuration file to the `/etc/sysconfig` directory
+4. Add a `php.ini` file to the `/etc` directory
+5. Start the `spawn-fcgi` service
+6. Start the `nginx` service 
+
+Can you anticipate a dependency for starting the `spawn-fcgi` and `nginx` services? The packages need to be installed before they can be started.
+SALT's ordering of states isn't linear as they are listed in your `init.sls` file. We need to ensure that the `spawn-fcgi` package is installed and that its configuration file is in place prior to starting the service.
+
+Here's our PHP state file so far:
+
+    spawn-fcgi:
+      pkg.installed:
+        - name: spawn-fcgi
+      file.managed:
+        - name: /etc/sysconfig/spawn-fcgi
+        - source: salt://php/spawn-fcgi.conf
+
+    php:
+      pkg.installed:
+        - pkgs:
+          - php
+          - php-mysql
+          - php-xml
+          - php-gd
+      file.managed:
+        - name: /etc/php.ini
+        - source: salt://php/php.ini
+
+We've got our packages installed and the configuration files in place. We now need to start the services:
+
+    start-spawn-fcgi:
+      service.running:
+        - name: spawn-fcgi
+        - enable: True
+        - reload: True
+        - require:                                                                     
+          - pkg: spawn-fcgi
+
+Notice the `require`? What we're saying is "Require successful completion of
+the installation of  the spawn-fcgi package, prior to starting the spawn-fcgi
+service."
+
+Now on to the `nginx` service:
+
+    start-nginx:
+      service.running:
+        - name: nginx
+        - require:
+          - pkg: spawn-fcgi
+        - enable: true
+        - reload: true
+        - watch:
+          - file: spawn-fcgi
+
+This one is slightly more complicated in that it not only uses a `require`, but
+it also has a `watch` statement. What this says is "Start NGINX, but only after
+successfully installing the spawn-fcgi package and reload NGINX if the spawn-fcgi
+file changes." The `service` state allows for a `reload` argument for the service
+which allows it to be reloaded.
 
 ## Pillars
 *Placeholder for Pillar Section*
 - Pillars are like variables
-- Can be applied to minions similar to how the top 
+- Can be applied to minions similar to how the top
+
+## Pulling it all together.
 
 ## Troubleshooting
 *Placeholder for tips for troubleshooting*
