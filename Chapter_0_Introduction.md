@@ -332,7 +332,7 @@ You can learn more about Python data structures from the official [Python](http:
 
 ### Boolean Operators in Python
 
-Python offers plain-word operators like `and`, `or`, and `not` for boolean operations. For example, Suppose I had a box of mixed fruit containing 10 apples, 5 oranges, and 15 bananas. I asked you to tell me how many pieces of fruit that you have that are apples and bananas. We have 30 pieces in total, but we only have 25 pieces that are apples and bananas.
+Python offers plain-word operators like `and`, `or`, and `not` for boolean operations. For example, suppose I had a box of mixed fruit containing 10 apples, 5 oranges, and 15 bananas. I asked you to tell me how many pieces of fruit that you have that are apples and bananas. We have 30 pieces in total, but we only have 25 pieces that are apples and bananas.
 
 Our simple python demonstration might look like this (you can try this yourself from a Python prompt):
 
